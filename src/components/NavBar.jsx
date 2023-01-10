@@ -11,7 +11,7 @@ export const NavBar = () => {
         getGenres().then((genres) => {
             setGenres(genres)
         });
-    },[])
+    },[]);
 
     return (
         <nav>
@@ -20,7 +20,7 @@ export const NavBar = () => {
                 {
                     genres.map((genre)=>{
                         return (
-                        <Link to={`reviews?category=${genre.slug}`} key={genre.slug}>
+                        <Link to={`reviews/category/${genre.slug}`} key={genre.slug}>
                         <li>{genre.slug}</li>
                         </Link>
                         )
