@@ -11,7 +11,7 @@ export const NavBar = () => {
         getGenres().then((genres) => {
             setGenres(genres)
         });
-    },[])
+    },[]);
 
     return (
         <nav>
