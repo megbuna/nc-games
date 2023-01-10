@@ -7,7 +7,6 @@ export const ReviewList = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const categoryQuery = searchParams.get('category');
     const [listOfReviews, setListOfReviews] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getReviews().then((reviews) => {
@@ -15,9 +14,7 @@ export const ReviewList = () => {
         })
     }, []);
 
-    return isLoading ? (
-        <p>Loading...</p>
-    ) : (
+    return (
     <section>
         <h2> Reviews </h2>
         {
