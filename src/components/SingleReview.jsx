@@ -8,6 +8,7 @@ export const SingleReview = () => {
     const {review_id} = useParams();
 
     useEffect(()=>{
+        setIsLoading(true);
         getReview(review_id).then((newReview)=>{
             setReview(newReview);
             setIsLoading(false);

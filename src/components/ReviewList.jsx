@@ -11,6 +11,7 @@ export const ReviewList = () => {
 
 
 useEffect(() => {
+    setIsLoading(true);
     getReviews().then((reviews) => {
         setListOfReviews(reviews);
         setIsLoading(false);
