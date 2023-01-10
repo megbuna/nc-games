@@ -7,6 +7,7 @@ export const ReviewList = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const categoryQuery = searchParams.get('category');
     const [listOfReviews, setListOfReviews] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getReviews().then((reviews) => {
@@ -14,13 +15,15 @@ export const ReviewList = () => {
         })
     }, []);
 
-    return (
+    return isLoading ? (
+        <p>Loading...</p>
+    ) : (
     <section>
         <h2> Reviews </h2>
         {
-            listOfReviews.map(({review_id, title, designer, owner, review_img_url, category, created_at, votes, review_body}) => {
+            listOfReviews.map(({review_id, title, designer, owner, review_img_url, category, created_at, votes}) => {
                 return (
-                        <ReviewCard key={review_id} review_id={review_id} title={title} designer={designer} owner={owner} img_url={review_img_url} category={category} created_at={created_at} votes={votes} review_body={review_body}/>
+                        <ReviewCard key={review_id} review_id={review_id} title={title} designer={designer} owner={owner} img_url={review_img_url} genre={category} created_at={created_at} votes={votes}/>
                 )
             })
         }

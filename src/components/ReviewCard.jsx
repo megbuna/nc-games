@@ -6,7 +6,7 @@ export const ReviewCard = ({review_id, title, designer, owner, img_url, category
         <Link to={`/reviews/${review_id}`}>
             <h3> {title} </h3>
         </Link>
-            <img src={img_url} alt={`Image of review ${review_id}`} width="200" height="200" />
+            <img src={img_url} alt={`Review ${review_id}`} width="200" height="200" />
             <p> {review_body} </p>
             <p>Designer: {designer}</p>
             <p>Category: {category}</p>

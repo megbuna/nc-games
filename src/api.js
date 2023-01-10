@@ -7,3 +7,9 @@ export const getReviews = () => {
         return res.data.reviews
     });
 };
+
+export const getGenres = () => {
+    return gamesApi.get('/categories').then((res) => {
+        return res.data.categories
+    })
+}

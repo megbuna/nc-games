@@ -1,18 +1,31 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getGenres } from "../api"
 
 export const NavBar = () => {
     const username = 'mallionaire'
+
+    const [genres, setGenres] = useState([])
+
+    useEffect(() =>{
+        getGenres().then((genres) => {
+            setGenres(genres)
+        });
+    },[])
+
     return (
         <nav>
             <ul className="navbar">
                 <li> Genres: </li>
-                <Link to={`/reviews?category=strategy`}><li> Strategy </li></Link>
-                <Link to={`/reviews?category=dexterity`}><li>Dexterity</li></Link>
-                <Link to={`/reviews?category=push-your-luck`}><li>Push-Your-Luck</li></Link>
-                <Link to={`/reviews?category=roll-and-write`}><li>Roll-and-Write</li></Link>
-                <Link to={`/reviews?category=deck-building`}><li>Deck-Building</li></Link>
-                <Link to={`/reviews?category=engine-building`}><li>Engine-Building</li></Link>
-                <Link to={`/${username}/comments`}><li>My Comments</li></Link>
+                {
+                    genres.map((genre)=>{
+                        return (
+                        <Link to={`reviews?category=${genre.slug}`} key={genre.slug}>
+                        <li>{genre.slug}</li>
+                        </Link>
+                        )
+                })
+            }
             </ul>
         </nav>
     );
