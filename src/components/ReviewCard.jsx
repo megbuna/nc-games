@@ -9,7 +9,7 @@ export const ReviewCard = ({review_id, title, designer, owner, img_url, category
             <img src={img_url} alt={`Review ${review_id}`} width="200" height="200" />
             <p> {review_body} </p>
             <p>Designer: {designer}</p>
-            <p>Category: {category}</p>
+            <p>Genre: {category}</p>
             <strong><p>User: {owner}</p></strong>
             <strong><p>Date: {created_at}</p></strong>
             <section>

@@ -9,7 +9,6 @@ export const ReviewList = () => {
     const [listOfReviews, setListOfReviews] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
 useEffect(() => {
     setIsLoading(true);
     getReviews().then((reviews) => {
