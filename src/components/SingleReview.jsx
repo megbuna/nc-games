@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getReview } from "../api";
+import { getReview, patchReview } from "../api";
 import { CommentList } from "./CommentList";
 
 export const SingleReview = () => {
@@ -25,7 +25,17 @@ export const SingleReview = () => {
             newReview.votes += vote;
             return newReview;
         })
+        patchReview(review_id, increaseVote).catch(() => {
+            alert("sorry something went wrong, please try again later.")
+            setReview((review) => {
+                    const newReview = {...review}
+                    newReview.votes += -(vote);
+                    return newReview;
+                })
+        })
+        if (patchReview){setVoted(true)}
     };
+
 
     return isLoading ? (
         <p> Loading review... </p>
