@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../api";
 import { CommentCard } from "./CommentCard";
+import { PostComment } from "./PostComment"
 
 export const CommentList = ({review_id}) => {
 
@@ -18,8 +19,7 @@ export const CommentList = ({review_id}) => {
     return isLoading ? (
         <p> Loading comments... </p>
     ) :
-    listOfComments.length === 0 ?  (<div><p> No comments yet </p>
-    </div> )
+    listOfComments.length === 0 ?  (<div><p> No comments yet </p><PostComment setListOfComments={setListOfComments}/></div>)
     :
     (
     <section className="commentList">
