@@ -18,7 +18,7 @@ useEffect(() => {
 }, []);
 
 return isLoading ? (
-    <p> Loading... </p>
+    <p> Loading reviews... </p>
 ) :
 (<section>
     <h2> Reviews </h2>
