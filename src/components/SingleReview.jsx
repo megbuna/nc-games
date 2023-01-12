@@ -33,7 +33,7 @@ export const SingleReview = () => {
     (<section>
         <div className="singleReviewCard">
         <h2 id="reviewTitle" > {review.title} </h2>  
-        <img src={review.review_img_url} alt={`Image of ${review.title}`} width="200" height="200" /> 
+        <img src={review.review_img_url} alt={`Image of ${review.title}`} width="150" height="150" /> 
         <p id="reviewBody"> {review.review_body} </p>
         <strong><p> Review By: {review.owner}</p></strong>
         <small><p>Date: {review.created_at}</p></small>
