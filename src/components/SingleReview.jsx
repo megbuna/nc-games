@@ -7,8 +7,6 @@ export const SingleReview = () => {
     const [review, setReview] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [voted, setVoted] = useState(false);
-    // const increaseVote = {inc_votes: 1};
-    // const decreaseVote = {inc_votes: -1};
     const {review_id} = useParams();
 
     useEffect(()=>{
