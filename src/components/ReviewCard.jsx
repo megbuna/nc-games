@@ -12,11 +12,6 @@ export const ReviewCard = ({review_id, title, designer, owner, img_url, category
             <p>Genre: {category}</p>
             <strong><p>User: {owner}</p></strong>
             <strong><p>Date: {created_at}</p></strong>
-            <section>
-                <p>Votes: {votes}</p>
-                <button>👍</button>
-                <button>👎</button>
-            </section>
         </div>
     );
 };

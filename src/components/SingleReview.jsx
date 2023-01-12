@@ -7,8 +7,8 @@ export const SingleReview = () => {
     const [review, setReview] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [voted, setVoted] = useState(false);
-    const increaseVote = {inc_votes: 1};
-    const decreaseVote = {inc_votes: -1};
+    // const increaseVote = {inc_votes: 1};
+    // const decreaseVote = {inc_votes: -1};
     const {review_id} = useParams();
 
     useEffect(()=>{
@@ -17,7 +17,7 @@ export const SingleReview = () => {
             setReview(newReview);
             setIsLoading(false);
         });
-    },[]);
+    },[review_id]);
 
     const vote = (vote) => {
         setReview((review) => {
@@ -25,11 +25,11 @@ export const SingleReview = () => {
             newReview.votes += vote;
             return newReview;
         })
-        patchReview(review_id, increaseVote).catch(() => {
-            alert("sorry something went wrong, please try again later.")
+        patchReview(review_id, {inc_votes: vote}).catch(() => {
+            alert("sorry something went wrong; please try again later")
             setReview((review) => {
                     const newReview = {...review}
-                    newReview.votes += -(vote);
+                    newReview.votes -= (vote);
                     return newReview;
                 })
         })
