@@ -8,7 +8,7 @@ export const PostComment = ({setListOfComments}) => {
     const handleSubmit = (e) => {
     e.preventDefault()
     setIsAddedToCommentList(false)
-    const author = "jessjelly"
+    const author = "grumpy19"
     const newComment = {
         username: author,
         author: author,
@@ -23,7 +23,7 @@ export const PostComment = ({setListOfComments}) => {
         return newComments
     })
     postComment(review_id, newComment).catch((err) => {
-        alert("sorry something went wrong; please try again later")
+        alert("sorry, something went wrong; please try again later")
         setListOfComments((comments) => {
             const newComments = [...comments]
                 newComments.pop()
@@ -45,7 +45,7 @@ if (isAddedToCommentList){
         <section className="postComment">
             <h3 id="addCommentTitle"> Add Comment</h3>
             <form onSubmit={handleSubmit}>
-                <textarea name="comment" id="comment" placeholder="say your thoughts..." required></textarea><br></br>
+                <textarea name="comment" id="comment" placeholder="Let us know what you think..." required></textarea><br></br>
                 <input type="submit" value="Post Comment"></input>
                 <input type="reset" value="Clear"></input>
             </form>

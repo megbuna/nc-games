@@ -14,7 +14,7 @@ export const CommentList = ({review_id}) => {
             setListOfComments(comments)
             setIsLoading(false)
         });
-    }, []);
+    }, [review_id]);
 
     return isLoading ? (
         <p> Loading comments... </p>
@@ -22,7 +22,8 @@ export const CommentList = ({review_id}) => {
     listOfComments.length === 0 ?  (<div><p> No comments yet </p><PostComment setListOfComments={setListOfComments}/></div>)
     :
     (
-    <section className="commentList">
+    <section>
+        <div className="commentList">
         <h3> Comments: </h3>
         {
             listOfComments.map(({body, votes, author, created_at, comment_id, review_id}) => {
@@ -31,6 +32,8 @@ export const CommentList = ({review_id}) => {
                 )
             })
         }
+        </div>
+        <PostComment setListOfComments={setListOfComments}/>
     </section>
     );
 };

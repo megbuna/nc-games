@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { getGenres } from "../api"
 
 export const NavBar = () => {
-    const username = 'mallionaire'
 
     const [genres, setGenres] = useState([])
 

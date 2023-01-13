@@ -37,3 +37,4 @@ export const postComment = (review_id, newComment) => {
         return res.data.comment
     })
 };
+
